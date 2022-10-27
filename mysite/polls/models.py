@@ -22,3 +22,11 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+
+
+class Value(models.Model):
+    value = models.PositiveIntegerField(default=0)
+    color = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.color + " " + str(self.value)
