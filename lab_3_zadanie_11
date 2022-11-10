@@ -1,0 +1,8 @@
+1. Person.objects.all()  
+2. Person.objects.get(id=3)
+3. Person.objects.filter(first_name__contains = "M")
+4. .
+5. Team.objects.all().order_by('-name')
+6. p= Person.objects.create(first_name = 'Filip', nazwisko='Cichy', miesiac_uro
+   dzenia='5', shirt_size='L', team_id='6')
+   p.save()
