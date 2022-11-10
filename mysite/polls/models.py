@@ -10,7 +10,7 @@ SHIRT_SIZES = (
     ('L', 'Large'),
 )
 
-MONTH = (
+MONTHS = (
     (1, 'Styczeń'),
     (2, 'Luty'),
     (3, 'Marzec'),
@@ -69,7 +69,7 @@ class Team(models.Model):
 class Person(models.Model):
     first_name = models.CharField(max_length=20, null=False, blank=False)
     nazwisko = models.CharField(max_length=20, null=False, blank=False)
-    miesiac_urodzenia = models.IntegerField(default=1, choices=MONTH)
+    miesiac_urodzenia = models.IntegerField(default=1, choices=MONTHS)
     data_dodania = models.DateField(auto_now_add=True)
     shirt_size = models.CharField(max_length=1, choices=SHIRT_SIZES)
     team = models.ForeignKey(Team, null=True, blank=True, on_delete=models.SET_NULL, verbose_name="Drużyna")
