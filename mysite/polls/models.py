@@ -69,7 +69,7 @@ class Team(models.Model):
 class Person(models.Model):
     first_name = models.CharField(max_length=20, null=False, blank=False)
     nazwisko = models.CharField(max_length=20, null=False, blank=False)
-    miesiac_urodzenia = models.IntegerField(default=1, choices=MONTHS)
+    miesiac_dodania = models.IntegerField(choices=MONTHS, default=MONTHS[0][0])
     data_dodania = models.DateField(auto_now_add=True)
     shirt_size = models.CharField(max_length=1, choices=SHIRT_SIZES)
     team = models.ForeignKey(Team, null=True, blank=True, on_delete=models.SET_NULL, verbose_name="Drużyna")
