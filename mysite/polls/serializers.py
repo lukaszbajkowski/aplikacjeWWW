@@ -1,10 +1,26 @@
 from rest_framework import serializers
 from .models import Person, Team, MONTHS, SHIRT_SIZES
+import datetime
+
+
+def validate_first_name(first_name):
+    if not first_name.isalpha():
+        raise serializers.ValidationError(
+            "Imię musi skałdać się z samych liter.",
+        )
+    return first_name
+
+def validate_miesiac_dodania(miesiac_dodania):
+    if datetime.date.today().month < miesiac_dodania:
+        raise serializers.ValidationError(
+            "Podany miesiąc nie może być z przyszłości.",
+        )
+    return miesiac_dodania
 
 
 class PersonSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
-    first_name = serializers.CharField(required=True)
+    first_name = serializers.CharField(required=True, validators=[validate_first_name])
     nazwisko = serializers.CharField(required=True)
     miesiac_dodania = serializers.ChoiceField(choices=MONTHS, default=MONTHS[0][0])
     shirt_size = serializers.ChoiceField(choices=SHIRT_SIZES, default=SHIRT_SIZES[0][0])
