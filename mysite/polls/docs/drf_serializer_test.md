@@ -3,7 +3,7 @@ from polls.serializers import PersonSerializer
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 
-person = Person(first_name='Patryk', nazwisko='Biały', shirt_size='L')
+person = Person(first_name=‘Patryk’, nazwisko=‘Biały’, shirt_size=‘L’)
 person.save()
 
 serializer = PersonSerializer(person)
@@ -28,13 +28,12 @@ deserializer.validated_data
 deserializer.save()
 deserializer.data
 
-
 from polls.models import Team
 from polls.serializers import TeamSerializer
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 
-team = Team(name='Pogoń Szczecin', country='PL')
+team = Team(name=‘Pogoń Szczecin’, country=‘PL’)
 team.save()
 
 serializer = TeamSerializer(team)
